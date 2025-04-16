@@ -30,7 +30,7 @@
         require("produto.php");
 
 
-        $Produto1 = new produto ($nome,$codigo,$precoUnitario,$estoque,$categoria);
+        $Produto1 = new Produto ($nome,$codigo,$precoUnitario,$estoque,$categoria);
 
     }
 
