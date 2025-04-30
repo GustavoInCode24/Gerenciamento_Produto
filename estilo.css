@@ -1,0 +1,55 @@
+body {
+    font-family: Arial, sans-serif;
+    background: #f4f4f4;
+    padding: 20px;
+  }
+  
+  .container {
+    max-width: 800px;
+    margin: auto;
+    background: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px #ccc;
+  }
+  
+  h1, h2 {
+    color: #333;
+  }
+  
+  form input, form select, form button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+  }
+  
+  button {
+    padding: 10px;
+    background: #007BFF;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+  }
+  
+  button:hover {
+    background: #0056b3;
+  }
+  
+  .acoes {
+    margin-top: 30px;
+  }
+  
+  .acoes button {
+    margin: 5px 0;
+    width: 100%;
+  }
+  
+  #resultado {
+    margin-top: 30px;
+    padding: 15px;
+    background: #e9ecef;
+    border-radius: 4px;
+  }
+  
