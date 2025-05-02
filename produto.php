@@ -9,11 +9,11 @@ interface Funcoes{
 
 abstract class Produto implements Funcoes {
 
-    private $nome;
-    private $codigo;
-    private $precoUnitario;
-    private $estoque;
-    private $categoria;
+    public $nome;
+    public $codigo;
+    public $precoUnitario;
+    public $estoque;
+    public $categoria;
 
 
     public function __construct($nome,$codigo,$precoUnitario,$estoque,$categoria)
@@ -58,13 +58,14 @@ class ProdutoFisico extends Produto {
 
     public $imposto;
 
-    public function calcularImposto()
-    {
-
+    public function calcularImposto(){
         
+        $this->precoUnitario * $this->imposto * 0.10;
+    }
+    
     }
 
-}
+
 
 
 ?>
