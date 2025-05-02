@@ -1,32 +1,37 @@
 body {
     font-family: Arial, sans-serif;
-    background: #f4f4f4;
+    background:linear-gradient(#cccccc,#d8d8c0);
+   
     padding: 20px;
   }
   
   .container {
     max-width: 800px;
     margin: auto;
-    background: #fff;
+    background: rgb(0, 0, 0);
     padding: 30px;
     border-radius: 8px;
-    box-shadow: 0 0 10px #ccc;
+   
   }
   
   h1, h2 {
-    color: #333;
+    color: #fffdfd;
   }
   
-  form input, form select, form button {
+  form input,form select,form button {
     display: block;
     width: 100%;
+    box-sizing: border-box;
     padding: 10px;
     margin: 10px 0;
+    font-size: 1rem;
+    border: 1px solid #e2e8f0;
+    border-radius: 5px;
   }
   
   button {
     padding: 10px;
-    background: #007BFF;
+    background: rgba(156, 156, 156, 0.719);
     color: white;
     border: none;
     cursor: pointer;
@@ -34,7 +39,7 @@ body {
   }
   
   button:hover {
-    background: #0056b3;
+    background: #adadad;
   }
   
   .acoes {

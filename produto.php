@@ -1,6 +1,13 @@
 <?php 
+interface Funcoes{
+    public function adicionarEstoque($quantidade);
+    public function reduzirEstoque($quantidade);
+    public function consultarEstoque();
+    public function exibirProduto();
+    public function calcularImposto();
+}
 
-class Produto {
+abstract class Produto implements Funcoes {
 
     private $nome;
     private $codigo;
@@ -11,11 +18,11 @@ class Produto {
 
     public function __construct($nome,$codigo,$precoUnitario,$estoque,$categoria)
     {
-        $this -> nome ;
-        $this -> codigo ;
-        $this -> precoUnitario ;
-        $this -> estoque ;
-        $this -> categoria ;
+        $this -> nome = $nome ;
+        $this -> codigo = $codigo;
+        $this -> precoUnitario = $precoUnitario ;
+        $this -> estoque = $estoque ;
+        $this -> categoria = $categoria ;
     }
 
     public function adicionarEstoque($quantidade){
@@ -32,17 +39,32 @@ class Produto {
 
     public function consultarEstoque(){
 
-        return $this -> estoque;
+        return $this->estoque;
     }
 
     public function exibirProduto(){
 
-        echo "Nome: " . $this -> nome .
-            "<br> Codigo: " . $this -> codigo .
+        echo "Nome Produto: " . $this -> nome .
+            "<br> Código: " . $this -> codigo .
             "<br> Categoria: " . $this -> categoria . 
             "<br> Estoque: " . $this -> estoque . 
             "<br> Preço: R$ " . number_format($this -> precoUnitario, 2, ',' , '.' );
     }
+
+     abstract function calcularImposto();
 }
+
+class ProdutoFisico extends Produto {
+
+    public $imposto;
+
+    public function calcularImposto()
+    {
+
+        
+    }
+
+}
+
 
 ?>
