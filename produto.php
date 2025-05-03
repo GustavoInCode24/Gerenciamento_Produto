@@ -1,5 +1,6 @@
-<?php 
-interface Funcoes{
+<?php
+interface Funcoes
+{
     public function adicionarEstoque($quantidade);
     public function reduzirEstoque($quantidade);
     public function consultarEstoque();
@@ -7,65 +8,105 @@ interface Funcoes{
     public function calcularImposto();
 }
 
-abstract class Produto implements Funcoes {
+abstract class Produto implements Funcoes
+{
 
-    public $nome;
-    public $codigo;
-    public $precoUnitario;
-    public $estoque;
-    public $categoria;
+    private $nome;
+    private $codigo;
+    private $precoUnitario;
+    private $estoque;
+    private $categoria;
 
-
-    public function __construct($nome,$codigo,$precoUnitario,$estoque,$categoria)
+    //CONSTRUTOR
+    public function __construct($nome, $codigo, $precoUnitario, $estoque, $categoria)
     {
-        $this -> nome = $nome ;
-        $this -> codigo = $codigo;
-        $this -> precoUnitario = $precoUnitario ;
-        $this -> estoque = $estoque ;
-        $this -> categoria = $categoria ;
+        $this->nome = $nome;
+        $this->codigo = $codigo;
+        $this->precoUnitario = $precoUnitario;
+        $this->estoque = $estoque;
+        $this->categoria = $categoria;
     }
 
-    public function adicionarEstoque($quantidade){
-        $this -> estoque += $quantidade;
+    //ADICIONAR
+    public function adicionarEstoque($quantidade)
+    {
+        $this->estoque += $quantidade;
     }
-    public function reduzirEstoque($quantidade){
-        if($quantidade <= $this -> estoque){
-            $this -> estoque -= $quantidade;
+
+    //REDUZIR
+    public function reduzirEstoque($quantidade)
+    {
+        if ($quantidade <= $this->estoque) {
+            $this->estoque -= $quantidade;
+        } else {
+            echo "quantidade insuficiente no estoque";
         }
-        else{
-            echo "quantidade insuiciente no estoque";
-        }
     }
 
-    public function consultarEstoque(){
-
+    //CONSULTAR
+    public function consultarEstoque()
+    {
         return $this->estoque;
     }
 
-    public function exibirProduto(){
+    //EXIBIR
+    public function exibirProduto()
+    {
 
-        echo "Nome Produto: " . $this -> nome .
-            "<br> Código: " . $this -> codigo .
-            "<br> Categoria: " . $this -> categoria . 
-            "<br> Estoque: " . $this -> estoque . 
-            "<br> Preço: R$ " . number_format($this -> precoUnitario, 2, ',' , '.' );
+        echo "Nome Produto: " . $this->nome .
+            "<br> Código: " . $this->codigo .
+            "<br> Categoria: " . $this->categoria .
+            "<br> Estoque: " . $this->estoque .
+            "<br> Preço: R$ " . number_format($this->precoUnitario, 2, ',', '.');
     }
 
-     abstract function calcularImposto();
+    //exibir valor unitario
+
+    public function getPrecoUnitario()
+    {
+        return $this->precoUnitario;
+    }
+
+    abstract function calcularImposto();
 }
 
-class ProdutoFisico extends Produto {
+trait Desconto
+{
 
-    public $imposto;
+    public function calcularDesconto($percentual)
+    {
+        $percentual /= 100;
 
-    public function calcularImposto(){
-        
-        $this->precoUnitario * $this->imposto * 0.10;
+        $desconto = $this->getPrecoUnitario() * $percentual;
+        $desconto = $this->getPrecoUnitario() - $desconto;
+
+        return $desconto;
     }
-    
+}
+
+
+//PRODUTO FISICO
+class ProdutoFisico extends Produto
+{
+
+    use Desconto;
+
+    public function calcularImposto()
+    {
+
+        return $this->getPrecoUnitario() * 0.10;
     }
+}
+
+//PRODUTO DIGITAL
+class ProdutoDigital extends Produto
+{
+
+    use Desconto;
 
 
-
-
-?>
+    public function calcularImposto()
+    {
+        return $this->getPrecoUnitario() * 0.05;
+    }
+}
