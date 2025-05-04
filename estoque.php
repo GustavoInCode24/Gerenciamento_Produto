@@ -89,8 +89,15 @@
           $estoque = $_POST["txtestoque"];
           $categoria = $_POST["txtcategoria"];
           $precoUnitario = $_POST["txtpreco"];
+          $tipo = $_POST["tipo"];
 
-          $P1 = new Produto($nome, $codigo, $precoUnitario, $estoque, $categoria);
+
+          if ($tipo === "fisico") {
+            $P1 = new ProdutoFisico($nome, $codigo, $precoUnitario, $estoque, $categoria);
+        } else {
+            $P1 = new ProdutoDigital($nome, $codigo, $precoUnitario, $estoque, $categoria);
+        }
+        
           echo "<p><i class='fas fa-check-circle'></i> Produto <strong>$nome</strong> cadastrado com sucesso!</p>";
         }
         ?>
