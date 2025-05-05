@@ -62,12 +62,24 @@ abstract class Produto implements Funcoes
 
     //exibir valor unitario
 
-    public function getPrecoUnitario()
-    {
-        return $this->precoUnitario;
-    }
-
     abstract function calcularImposto();
+
+    public function getNome() {
+        return $this->nome;
+      }
+    
+      public function getCodigo() {
+        return $this->codigo;
+      }
+    
+      public function getPrecoUnitario() {
+        return $this->precoUnitario;
+      }
+    
+      public function getCategoria() {
+        return $this->categoria;
+      }
+    
 }
 
 trait Desconto
