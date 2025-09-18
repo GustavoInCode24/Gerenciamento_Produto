@@ -24,11 +24,12 @@ Perfeito para quem quer aprender a criar **interfaces limpas** e **aplicações 
 
 ---
 
-## 🌟 Extras
+## ✨ Diferenciais
 
-- Fácil de adaptar para novos módulos  
-- Estrutura pensada para **aprendizado rápido** de PHP e CSS  
-- Pode ser usado como base para **projetos maiores de estoque e vendas**  
+- **Fácil de personalizar cores e estilos**  
+- **Rápido e leve**, ideal para testes e aprendizado  
+- **Base sólida** para adicionar módulos avançados, como relatórios ou gráficos de estoque  
+- **Visual moderno** mesmo com código simples  
 
 ---
 
